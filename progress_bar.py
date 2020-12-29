@@ -1,4 +1,7 @@
-# Progress Bar v1.0.0 by robino16
+"""
+Progress Bar (Python) v1.0.1 by robino16
+"""
+
 import time
 
 
