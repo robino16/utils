@@ -6,7 +6,7 @@ A simple progress bar class for Python applications.
 
     Progress: |█████████████████       | 80/100 (80%) ETA: 2s
 
-**Example A:**
+**Example:**
 
 ```python
 from progress_bar import ProgressBar
@@ -18,3 +18,7 @@ for i in range(epochs)
     bar.set(i) # alternatively use: bar.next()
 bar.finish()
 ```
+
+## File I/O Service (Python)
+
+A simple service for handling files and directories. 
