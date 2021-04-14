@@ -121,7 +121,7 @@ def main():
 
     save_app_config(CONF, CONF_FILE)
 
-    count_occurances = 0
+    count_occurences = 0
     count_replacements = 0
     count_modified = 0
     count_files = 0
@@ -141,7 +141,7 @@ def main():
                 continue
             try:
                 file_modified = False
-                count_occurances_in_file = 0
+                count_occurences_in_file = 0
                 count_changes_in_file = 0
                 new_lines = []
                 line_number = 0
@@ -155,15 +155,15 @@ def main():
                         
                         new = old.replace(CONF.string_to_replace, CONF.string_to_replace_with)
 
-                        if count_occurances_in_file == 0:
+                        if count_occurences_in_file == 0:
                             print(f'\n\n    {file}')
                             print('    ' + ''.join(['~' for _ in range(34)]))
                             print(f'    found \'{CONF.string_to_replace}\'')
                             print(f'    in file \'{filepath}\'')
 
-                        count_occurances += 1
-                        count_occurances_in_file += 1
-                        print(f'\n        occurance #{count_occurances_in_file}')
+                        count_occurences += 1
+                        count_occurences_in_file += 1
+                        print(f'\n        occurence #{count_occurences_in_file}')
                         print('        ' + ''.join(['~' for _ in range(30)]))
                         print(f'        line #{line_number}:\t"{old}\"')
                         print(f'              -> \t\"{new}\"')
@@ -187,7 +187,7 @@ def main():
                     else:
                         new_lines.append(old)
                 if file_modified:
-                    remaining = count_occurances_in_file - count_changes_in_file
+                    remaining = count_occurences_in_file - count_changes_in_file
                     print(f'\n    APPLIED {count_changes_in_file} CHANGES TO FILE \'{filepath}\'')
                     if remaining == 0:
                         print(f'    poof! {CONF.string_to_replace} was removed from file')
@@ -199,13 +199,13 @@ def main():
             except Exception as e:
                 LOG.error("Could not read file: {}:\n{}".format(filepath, e))
     print(f'\n{count_modified} files ({count_replacements} lines) changed')
-    remaining = count_occurances - count_replacements
-    if count_occurances == 0:
+    remaining = count_occurences - count_replacements
+    if count_occurences == 0:
         print(f'did not find any {CONF.string_to_replace}s')
     elif remaining == 0:
         print(f'poof! \'{CONF.string_to_replace}\' has been completely erased')
     else:
-        print(f'oops! {remaining} occurances of {CONF.string_to_replace} may still remain...')
+        print(f'oops! {remaining} occurences of {CONF.string_to_replace} may still remain...')
 
 
 if __name__ == '__main__':

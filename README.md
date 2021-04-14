@@ -66,3 +66,16 @@ python -m string_replace
 ```
 
 Then follow the on-screen prompts. 
+Here we replace bananas with apples:
+
+    apple.c
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    found 'banana'
+    in file '.\bananas\apple.c'
+
+        occurrence #1
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        line #1:       "i have a banana"
+              ->       "i have a apple"
+
+                       ACCEPTED
