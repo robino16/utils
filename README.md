@@ -12,17 +12,12 @@ A simple progress bar class for Python applications.
 from progress_bar import ProgressBar
 
 epochs = 100
-bar = ProgressBar(epochs)
+bar = ProgressBar(epochs, resolution=1000)
 for i in range(epochs)
     # do tasks here
     bar.set(i) # alternatively use: bar.next()
 bar.finish()
 ```
-
-!!! warning
-    For applications with thousands of iterations 
-    increase the step size (to e.g. 1000)
-    to reduce computational cost of the progress bar. 
 
 ## File I/O Service (Python)
 

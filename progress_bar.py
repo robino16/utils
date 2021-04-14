@@ -67,7 +67,7 @@ class ProgressBar:
     def _start(self, total_nr_of_chunks):
         self.total_nr_of_chunks = total_nr_of_chunks
         self.division_factor = self.total_nr_of_chunks / self.bar_length
-        self.step_size = int(self.total_nr_of_chunks / self.resolution) if self.resolution != 0 else self.step_size
+        self.step_size = max(int(self.total_nr_of_chunks / self.resolution), 1) if self.resolution != 0 else self.step_size
         self.start_time = time.time()
         self.started = True
         self._show_bar()
