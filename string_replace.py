@@ -43,7 +43,7 @@ class AppConfig:
         self.file_types = ['.h', '.c', '.py', '.md']
 
         self.log_level = logging.INFO
-        self.log_output_file = 'srv2.log'
+        self.log_output_file = 'string_replace.log'
         if json_dict:
             vars(self).update(json_dict)
 
@@ -65,7 +65,7 @@ def load_app_config(path: str) -> AppConfig:
 
 
 # global parameters
-CONF_FILE = 'srv2.conf'
+CONF_FILE = 'string_replace.conf'
 CONF = load_app_config(CONF_FILE)
 logging.basicConfig(level=CONF.log_level, 
                     handlers=[logging.FileHandler(CONF.log_output_file), logging.StreamHandler()])
