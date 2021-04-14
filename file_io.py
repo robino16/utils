@@ -1,7 +1,3 @@
-"""
-File I/O Service v1.0.0 by robino16
-"""
-
 import os
 import os.path
 import logging
@@ -9,38 +5,41 @@ import logging
 log = logging.getLogger()
 
 
-def write_file(filepath, lines, mode='w'):
-    if not file_exist(filepath):
-        log.info(f"Writing new file: {filepath}.")
-        pass
-    f = open(filepath, mode)
+def write_file(path, line, mode='w'):
+    f = open(path, mode)
+    f.write(line)
+    f.close()
+
+
+def write_lines_to_file(path, lines, mode='w'):
+    f = open(path, mode)
     for line in lines:
         f.write(line + "\n")
     f.close()
 
 
-def append_line(filepath, line):
-    append_lines(filepath, [line])
+def append_line(path, line):
+    append_lines(path, [line])
 
 
-def append_lines(filepath, lines):
-    write_file(filepath, lines, "a")
+def append_lines(path, lines):
+    write_lines_to_file(path, lines, "a")
 
 
-def write_line(filepath, line):
-    write_lines(filepath, [line])
+def write_line(path, line):
+    write_lines(path, [line])
 
 
-def write_lines(filepath, lines):
-    write_file(filepath, lines, "w")
+def write_lines(path, lines):
+    write_lines_to_file(path, lines, "w")
 
 
-def read_lines_from_file(filepath):
-    return open(filepath, 'r').readlines()
+def read_lines_from_file(path):
+    return open(path, 'r').readlines()
 
 
-def file_exist(filepath):
-    return os.path.isfile(filepath)
+def file_exist(path):
+    return os.path.isfile(path)
 
 
 def folder_exist(path):
@@ -53,5 +52,13 @@ def read_file(filepath):
 
 def make_dir(path):
     if not folder_exist(path):
-        log.info(f"Creating new directory: {path}.")
         os.mkdir(path)
+
+
+def save_keras_model(model, path):
+    model.save(path)
+
+
+def load_keras_model(path):
+    from keras.models import load_model
+    return load_model(path)
