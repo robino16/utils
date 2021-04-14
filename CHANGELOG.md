@@ -3,6 +3,7 @@
 ## Unreleased
 ### Added
 - PDF Freeze in readme. 
+- String replace script. 
 
 ### Fixed
 - Make progress bar methods private instead of special.

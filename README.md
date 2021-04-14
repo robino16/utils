@@ -41,9 +41,28 @@ so that no one can copy/steal your signature.
 
 **Example usage:**
 
+From a terminal window:
+
 ```bash
 python -m pdf_freeze --i original.pdf --o freezed.pdf
 ```
 
 !!! important
-    See notes in the script. 
+    See dependencies inside the script file. 
+
+## String Search & Replace
+
+Tool for renaming variables/replacing strings in a project. 
+Some IDEs (e.g. SEGGER Embedded Studio) does not feature
+proper refactoring of variables. 
+Thus, this script was made to make life a little bit easier. 
+
+**Example usage:**
+
+From a terminal window:
+
+```bash
+python -m string_replace
+```
+
+Then follow the on-screen prompts. 
