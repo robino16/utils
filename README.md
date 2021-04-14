@@ -41,9 +41,9 @@ so that no one can copy/steal your signature.
 
 **Example usage:**
 
-'''batch
+```bash
 python -m pdf_freeze --i original.pdf --o freezed.pdf
-'''
+```
 
 !!! important
     See notes in the script. 

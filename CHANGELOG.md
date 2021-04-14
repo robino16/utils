@@ -6,6 +6,7 @@
 
 ### Fixed
 - Make progress bar methods private instead of special.
+- Markdown bash code formatting.
 
 ## [0.0.0] - 14. April 2021
 - Start of changelog.

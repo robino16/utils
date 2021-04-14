@@ -34,8 +34,8 @@ This makes your confidential PDFs slightly more secure.
 
 You can verify the installation by typing in the command prompt:
 
-```batch
-    WHERE doppler.dll
+```bash
+where doppler.dll
 ```
 
 If the system is able to locate doppler.dll, then doppler has been successfully installed on your system. 
@@ -51,8 +51,8 @@ Both of these can be installed via pip.
 
 From a terminal window (e.g. Command Prompt):
 
-```batch
-    python -m pdf_freeze --i original.pdf --o freezed.pdf --dpi 300
+```bash
+python -m pdf_freeze --i original.pdf --o freezed.pdf --dpi 300
 ``'
 
 (Assuming Python has been added to the user/system's Path environment variable.)
