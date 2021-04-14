@@ -4,6 +4,7 @@
 ### Added
 - PDF Freeze in readme. 
 - String replace script. 
+- App config template.
 
 ### Fixed
 - Make progress bar methods private instead of special.
