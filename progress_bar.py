@@ -34,22 +34,22 @@ class ProgressBar:
         self.show_time_remaining = show_time_remaining
         self.info = ''
         if total_nr_of_chunks > 0:
-            self.__start(total_nr_of_chunks)
+            self._start(total_nr_of_chunks)
 
     def set(self, current_chunk, info='', total_nr_of_chunks=None):
         # set a specific current chunk (usually the _i_ variable in for-loops)
         if total_nr_of_chunks is not None and not self.started:
-            self.__start(total_nr_of_chunks)
+            self._start(total_nr_of_chunks)
         self.current_chunk = current_chunk + 1
         if info != '':
             self.info = info
-        self.__show_bar()
+        self._show_bar()
 
     def jump(self, chunks_to_add=1, info=''):
         # skip ahead a certain number of chunks
         self.info = info
         self.current_chunk += chunks_to_add
-        self.__show_bar()
+        self._show_bar()
 
     def next(self, info=''):
         # go to next chunk
@@ -60,19 +60,19 @@ class ProgressBar:
         if self.finished:
             return
         self.current_chunk = self.total_nr_of_chunks
-        self.__draw_bar()
+        self._draw_bar()
         self.finished = True
         print("")
 
-    def __start(self, total_nr_of_chunks):
+    def _start(self, total_nr_of_chunks):
         self.total_nr_of_chunks = total_nr_of_chunks
         self.division_factor = self.total_nr_of_chunks / self.bar_length
         self.step_size = int(self.total_nr_of_chunks / self.resolution) if self.resolution != 0 else self.step_size
         self.start_time = time.time()
         self.started = True
-        self.__show_bar()
+        self._show_bar()
 
-    def __all_is_good(self):
+    def _all_is_good(self):
         if self.finished:
             return False
         elif not self.started:
@@ -86,18 +86,18 @@ class ProgressBar:
             return False
         return True
 
-    def __draw_bar(self):
+    def _draw_bar(self):
         nr_of_fill_chars = int(safely_divide(self.current_chunk, self.division_factor))
         nr_of_pad_chars = int(self.bar_length - nr_of_fill_chars)
         progress_percentage = safely_divide(self.current_chunk * 100, self.total_nr_of_chunks)
-        bar = self.__get_bar_as_string(nr_of_fill_chars, nr_of_pad_chars, progress_percentage)
+        bar = self._get_bar_as_string(nr_of_fill_chars, nr_of_pad_chars, progress_percentage)
         print('\r{0} {1}'.format(bar, self.info), end="")
 
-    def __show_bar(self):
-        if self.__all_is_good():
-            self.__draw_bar()
+    def _show_bar(self):
+        if self._all_is_good():
+            self._draw_bar()
 
-    def __get_bar_as_string(self, nr_of_fill_chars, nr_of_pad_chars, percentage):
+    def _get_bar_as_string(self, nr_of_fill_chars, nr_of_pad_chars, percentage):
         # specify bar format here
         bar = "{0}: {1}".format(self.title, BRACKET_LEFT)
         for i in range(nr_of_fill_chars):
@@ -113,10 +113,10 @@ class ProgressBar:
             if self.finished:
                 bar += "Finished"
             else:
-                bar += " ETA: {0}s".format(self.__time_remaining())
+                bar += " ETA: {0}s".format(self._time_remaining())
         return bar
 
-    def __time_remaining(self):
+    def _time_remaining(self):
         elapsed_time = time.time() - self.start_time
         remaining_chunks = self.total_nr_of_chunks - self.current_chunk
         remaining_time = remaining_chunks * (elapsed_time / max(self.current_chunk, 1))

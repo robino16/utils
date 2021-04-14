@@ -1,14 +1,19 @@
 # Changelog
 
-# Unreleased
+## Unreleased
+### Added
+- PDF Freeze in readme. 
 
-# [0.0.0] - 14. April 2021
+### Fixed
+- Make progress bar methods private instead of special.
+
+## [0.0.0] - 14. April 2021
 - Start of changelog.
 
-## Added
+### Added
 - Added PDF Freeze script. 
 - Updated progress bar - Uses private methods. 
 - Updated file io service
 
-## Changed
+### Changed
 - Make FileIO a class with static methods. 
