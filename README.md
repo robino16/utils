@@ -106,3 +106,9 @@ LOG = app_config.log
 MY_PARAMETER = CONF.parameter
 LOG.info(f'using parameter:{MY_PARAMETER}')
 ```
+
+## pyTsetlinMachine Windows Installation Guide
+
+> doc/tsetlin-machine-windows-installation.md
+
+A short guide on how to install pyTsetlinMachine on a Windows host. 

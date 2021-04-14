@@ -5,6 +5,7 @@
 - PDF Freeze in readme. 
 - String replace script. 
 - App config template.
+- TM windows installation guide. 
 
 ### Fixed
 - Make progress bar methods private instead of special.
