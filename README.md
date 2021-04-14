@@ -19,6 +19,11 @@ for i in range(epochs)
 bar.finish()
 ```
 
+!!! warning
+    For applications with thousands of iterations 
+    increase the step size (to e.g. 1000)
+    to reduce computational cost of the progress bar. 
+
 ## File I/O Service (Python)
 
 A simple service for handling files and directories. 
