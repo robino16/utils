@@ -1,64 +1,63 @@
 import os
 import os.path
-import logging
-
-log = logging.getLogger()
 
 
-def write_file(path, line, mode='w'):
-    f = open(path, mode)
-    f.write(line)
-    f.close()
+class FileIO:
+    @staticmethod
+    def write_file(path, line, mode='w'):
+        f = open(path, mode)
+        f.write(line)
+        f.close()
 
+    @staticmethod
+    def write_lines_to_file(path, lines, mode='w'):
+        f = open(path, mode)
+        for line in lines:
+            f.write(line + "\n")
+        f.close()
 
-def write_lines_to_file(path, lines, mode='w'):
-    f = open(path, mode)
-    for line in lines:
-        f.write(line + "\n")
-    f.close()
+    @staticmethod
+    def append_line(path, line):
+        FileIO.append_lines(path, [line])
 
+    @staticmethod
+    def append_lines(path, lines):
+        FileIO.write_lines_to_file(path, lines, "a")
 
-def append_line(path, line):
-    append_lines(path, [line])
+    @staticmethod
+    def write_line(path, line):
+        FileIO.write_lines(path, [line])
 
+    @staticmethod
+    def write_lines(path, lines):
+        FileIO.write_lines_to_file(path, lines, "w")
 
-def append_lines(path, lines):
-    write_lines_to_file(path, lines, "a")
+    @staticmethod
+    def read_lines(path):
+        return open(path, 'r').readlines()
 
+    @staticmethod
+    def file_exist(path):
+        return os.path.isfile(path)
 
-def write_line(path, line):
-    write_lines(path, [line])
+    @staticmethod
+    def folder_exist(path):
+        return os.path.isdir(path)
 
+    @staticmethod
+    def read_file(path):
+        return open(path, 'r').read()
 
-def write_lines(path, lines):
-    write_lines_to_file(path, lines, "w")
+    @staticmethod
+    def make_dir(path):
+        if not FileIO.folder_exist(path):
+            os.mkdir(path)
 
+    @staticmethod
+    def save_keras_model(model, path):
+        model.save(path)
 
-def read_lines_from_file(path):
-    return open(path, 'r').readlines()
-
-
-def file_exist(path):
-    return os.path.isfile(path)
-
-
-def folder_exist(path):
-    return os.path.isdir(path)
-
-
-def read_file(filepath):
-    return open(filepath, 'r').read()
-
-
-def make_dir(path):
-    if not folder_exist(path):
-        os.mkdir(path)
-
-
-def save_keras_model(model, path):
-    model.save(path)
-
-
-def load_keras_model(path):
-    from keras.models import load_model
-    return load_model(path)
+    @staticmethod
+    def load_keras_model(path):
+        from keras.models import load_model
+        return load_model(path)
