@@ -1,6 +1,10 @@
 # Changelog
 
-## Unreleased
+## [0.2.0] - 20. July 2021
+## Added
+- Genetic algorithm. 
+
+## [0.1.0] - 16. April 2021
 ### Added
 - PDF Freeze in readme. 
 - String replace script. 

@@ -88,6 +88,31 @@ Here we replace bananas with apples:
 
                        ACCEPTED
 
+# Algorithms
+
+## Genetic Algorithm
+
+> algorithms/genetic_algorithm.py
+
+A class implementing a simple genetic algorithm. 
+
+**Example Usage:**
+
+```python
+from genetic_algorithm import GeneticAlgorithm
+
+
+def fitness_function(chromosome: list) -> float:
+    return sum(chromosome)
+
+
+ga = GeneticAlgorithm(fitness_function, chromosome_size=10, population_size=100, nr_of_levels=2
+                      group_size=2, binary=False)
+ga.run(100)
+```
+
+# Templates
+
 ## App Config Template
 
 > templates/app_config.py
@@ -107,8 +132,10 @@ MY_PARAMETER = CONF.parameter
 LOG.info(f'using parameter:{MY_PARAMETER}')
 ```
 
+# Documents
+
 ## pyTsetlinMachine Windows Installation Guide
 
-> doc/tsetlin-machine-windows-installation.md
+> docs/tsetlin-machine-windows-installation.md
 
-A short guide on how to install pyTsetlinMachine on a Windows host. 
+A short guide on how pyTsetlinMachine can be installed on a Windows host. 
