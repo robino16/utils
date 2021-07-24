@@ -1,7 +1,11 @@
 # Changelog
 
+## [0.2.1] - 24. July 2021
+### Fixed
+- App config template.
+
 ## [0.2.0] - 20. July 2021
-## Added
+### Added
 - Genetic algorithm. 
 
 ## [0.1.0] - 16. April 2021
